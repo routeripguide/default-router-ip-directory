@@ -46,8 +46,21 @@ If both the upstream modem and downstream router deploy `192.168.1.0/24`:
 ### Remediation Protocol:
 1. Disconnect the WAN uplink cable between both units.
 2. Connect a PC directly to a LAN port on the secondary router.
-3. Access its administrative console and reassign its LAN subnet to an alternate pool (such as `192.168.2.1` or `192.168.10.1`).
+3. Access its administrative console and reassign its LAN subnet to an alternate pool (such as `192.168.2.1` or `10.50.1.1`).
 4. Save the configuration, reboot both devices, and reconnect the WAN uplink.
+
+---
+
+## Troubleshooting Gateway Reachability (192.168.1.1 Timeouts)
+
+When attempting to access `192.168.1.1` via a web browser, connections frequently fail with `ERR_CONNECTION_TIMED_OUT`, `ERR_CONNECTION_REFUSED`, or blank responses. Common root causes include:
+
+1. **Subnet Disconnect:** The host adapter is on a different network segment (e.g., connected to a cellular hotspot or secondary guest AP).
+2. **Incorrect Gateway IP:** The hardware's active default gateway is actually `192.168.0.1`, `10.0.0.1`, or `192.168.1.254`.
+3. **HTTP vs HTTPS Port Mismatch:** The administrative daemon listens exclusively on TLS port 443 (requiring `https://192.168.1.1`) or redirects to an ISP mobile application.
+4. **IP Conflict / Duplicate Default Gateway:** Two devices on the local LAN broadcast conflicting ARP announcements for `.1`.
+
+For the complete diagnostic walk-through covering ping verification, ICMP echo checks, and step-by-step connection recovery on Windows, Mac, and mobile, refer to the [192.168.1.1 troubleshooting guide](https://routeripguide.com/troubleshooting/192-168-1-1-not-working).
 
 ---
 
@@ -78,3 +91,4 @@ ip neigh show
 ```
 
 Published by [Router IP Guide](https://routeripguide.com/) - Independent Hardware Networking & Gateway Diagnostic Suite.
+
