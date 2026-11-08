@@ -16,6 +16,7 @@ The table below catalogs primary gateway host assignments, subnet masks, and adm
 | **Linksys** | Velop / Hydra / WRT Series | `192.168.1.1` | `255.255.255.0` | `admin` | `admin` | 80 | [192.168.1.1 Protocol](https://routeripguide.com/ip/192-168-1-1) |
 | **D-Link** | DIR / Eagle Pro AI | `192.168.0.1` | `255.255.255.0` | `admin` | `(blank)` | 80 | [192.168.0.1 Protocol](https://routeripguide.com/ip/192-168-0-1) |
 | **Ubiquiti** | UniFi Dream Machine / Gateway | `192.168.1.1` | `255.255.255.0` | `ubnt` | `ubnt` | 443 | [192.168.1.1 Protocol](https://routeripguide.com/ip/192-168-1-1) |
+| **RockREMOTE / Omron** | Satellite IoT / CP1L-E PLC | `192.168.250.1` | `255.255.255.0` | `admin` | `(Static IP Required)` | 8080 / 80 | [192.168.250.1 Guide](https://routeripguide.com/ip/192-168-250-1) |
 
 For complete hardware documentation across 30+ additional brands, consult the [router hardware directory](https://routeripguide.com/router).
 
